@@ -14,7 +14,7 @@ function error($code)
 	exit;
 }
 
-function redirect($page, $params)
+function redirect($page, $params = null)
 {
 	$param = ( ! empty($params)) ? '&' . http_build_query($params) : '';
 	header("Location: ./?page=$page$param");
