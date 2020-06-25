@@ -66,4 +66,6 @@ $poll_id     = $poll->id;
 $poll_name   = $poll->name;
 $poll_status = $poll->status;
 
+$results = $db->get_rows("SELECT * FROM results WHERE poll_id = %d ORDER BY id DESC", $poll_id);
+
 

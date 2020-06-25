@@ -63,3 +63,7 @@
 .first-quastion .quastion-add, .quastion-remove {
 	display: inline;
 }
+
+.create-link {
+	padding: 25px;
+}

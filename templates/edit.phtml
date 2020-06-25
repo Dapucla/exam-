@@ -1,6 +1,10 @@
 <?php if ($poll_status) : ?>
 
+	<h3>Просмотр сессии</h3>
+
 <?php else: ?>
+	
+	<h3>Изменение сессии</h3>
 	
 	<?php include 'form.phtml'; ?>
 
@@ -12,4 +16,30 @@
 		};
 	</script>
 
+<?php endif; ?>
+
+<hr>
+
+<div class="create-link">
+	<form method="POST" action="./?page=create_link&poll_id=<?= $poll_id ?>">
+		<input type="text" required="required" name="title" placeholder="Имя репондента">
+		<input type="submit" value="Получить ссылку">
+	</form>
+</div>
+
+<?php if ($poll_status) : ?>
+
+	<hr>
+
+	<h4>Список ссылок</h4>
+
+	<table>
+		<?php foreach ($results as $result) : ?>
+			<tr>
+				<td><a href="./?page=link&link_id=<?= $result->id ?>"><?= $result->title ?></a></td>
+				<td><?= empty($result->results) ? 'не заполнена' : 'заполнена' ?></td>
+			</tr>
+		<?php endforeach; ?>
+	</table>
+	
 <?php endif; ?>
