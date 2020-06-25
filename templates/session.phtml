@@ -18,6 +18,7 @@
 			$options = [];
 			foreach ($quastion->options as $key => $option)
 			{
+				if (empty($key)) continue;
 				$options[] = "$key -> $option";
 			}
 		?>
