@@ -38,8 +38,13 @@
 	<table>
 		<?php foreach ($results as $result) : ?>
 			<tr>
-				<td><a href="./?page=link&link_id=<?= $result->id ?>"><?= $result->title ?></a></td>
-				<td><?= empty($result->results) ? 'не заполнена' : 'заполнена' ?></td>
+				<?php if (empty($result->results)) : ?>
+					<td><a href="./?page=link&link_id=<?= $result->id ?>"><?= $result->title ?></a></td>
+					<td>не заполнена</td>
+				<?php else: ?>
+					<td><a href="./?page=view&link_id=<?= $result->id ?>"><?= $result->title ?></a></td>
+					<td>заполнена</td>
+				<?php endif; ?>
 			</tr>
 		<?php endforeach; ?>
 	</table>
