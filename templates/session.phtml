@@ -5,7 +5,7 @@
 		'Положительное число',
 		'Строка',
 		'Текст',
-		'Множественный выбор (селекты)',
+		'Множественный выбор (radio)',
 		'Множественный выбор (чекбоксы)',
 	];
 ?>
@@ -24,7 +24,7 @@
 		<p>
 			<span><?= $quastion->name ?></span>
 			<strong><?= $types[$quastion->type] ?></strong>
-			<?php if ( ! empty($options)) { ?>[ <?= print_r(join(' | ', $options)) ?> ]<?php } ?>
+			<?php if ( ! empty($options)) { ?>[ <?= print_r(join(' | ', $options), true) ?> ]<?php } ?>
 		</p>
 	<?php endforeach; ?>	
 </p>

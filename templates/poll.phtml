@@ -1,2 +1,47 @@
-<h3>Прохождение опроса</h3>
+<h3>Прохождение опроса для <strong><?= $result->title ?></h3>
+
+<form method="POST">
+	<input type="hidden" name="poll_id" value="<?= $result->poll_id ?>">
+	<?php foreach ($quastions as $key => $quastion) : ?>
+		<p>
+			<span><?= $quastion->name ?></span>
+			<?php 
+				switch ($quastion->type)
+				{
+					case 1:
+						?><input type="number" name="answer[<?= $key ?>]" required="required"><?
+						break;
+						
+					case 2:
+						?><input type="number" name="answer[<?= $key ?>]" required="required" min="0"><?
+						break;
+						
+					case 3:
+						?><input type="text" name="answer[<?= $key ?>]" required="required" maxlength="30"><?
+						break;
+						
+					case 4:
+						?><textarea name="answer[<?= $key ?>]" required="required" maxlength="255"></textarea><?
+						break;
+						
+					case 5:
+						foreach ($quastion->options as $name => $value)
+						{
+							?><input type="radio" name="answer[<?= $key ?>]" value="<?= $name ?>" required="required"><?
+						}
+						break;
+				
+					case 6:
+						foreach ($quastion->options as $name => $value)
+						{
+							?><input type="checkbox" name="answer[<?= $key ?>][<?= $name ?>]" value="<?= $name ?>"><?
+						}
+						break;
+				}
+			?>
+		</p>
+	<?php endforeach; ?>
+	
+	<input type="submit" value="Отправить">
+</form>
 

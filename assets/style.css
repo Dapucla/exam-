@@ -1,3 +1,11 @@
+* {
+	font-family: sans-serif;
+}
+
+a {
+	color: blue;
+}
+
 .menu {
 	padding-left: 10px;
 }
@@ -67,3 +75,10 @@
 .create-link {
 	padding: 25px;
 }
+
+p > span {
+	display: block;
+	float: left;
+	min-width: 200px;
+}
+

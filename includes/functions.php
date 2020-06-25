@@ -28,5 +28,11 @@ function get_var($name, $default = '')
 
 function check_fields($fields)
 {
-	
+	foreach ($fields as $field)
+	{
+		if ( ! isset($_REQUEST[$field]))
+		{
+			error(400);
+		}
+	}
 }

@@ -18,7 +18,7 @@
 		<option value="2">Положительное число</option>
 		<option value="3">Строка</option>
 		<option value="4">Текст</option>
-		<option value="5">Множественный выбор (селекты)</option>
+		<option value="5">Множественный выбор (radio)</option>
 		<option value="6">Множественный выбор (чекбоксы)</option>
 	</select>
 	<span>Название поля:</span>
@@ -92,8 +92,8 @@
 		});	
 
 		$el.find('.quastion-remove').click(quastionRemove);		
-		console.log(params.options);
-		if (params.id) {
+		//console.log(params.options);
+		if (params && params.id) {
 			$('*[name="field_name[' + fieldCount + ']"]').val(params.name);
 			$('*[name="field_type[' + fieldCount + ']"]').val(params.type).change();
 			if (params.type == 5 || params.type == 6)
