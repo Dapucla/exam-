@@ -1,6 +1,6 @@
 <?php
 
-const ADM_PASSWORD = '12345';
+const ADMIN_PASS = '12345';
 
 const DB_HOST = 'localhost';
 

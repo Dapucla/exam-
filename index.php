@@ -15,7 +15,9 @@ define('IS_POST', $_SERVER['REQUEST_METHOD'] == 'POST');
 
 $titles = [ 'Опросы' ];
 
-$page = empty($_GET['page']) ? 'index' : preg_replace('/[^a-z0-9_]/', '', $_GET['page']);
+$db = new DB;
+
+$page = preg_replace('/[^a-z0-9_]/', '', get_var('page', 'index'));
 
 $action_file   = "actions/$page.php";
 $template_file = __DIR__ . "/templates/$page.phtml";

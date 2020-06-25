@@ -1,0 +1,15 @@
+<?php if ($poll_status) : ?>
+
+<?php else: ?>
+	
+	<?php include 'form.phtml'; ?>
+
+	<script>
+		function ready() {
+			<?php foreach($quastions as $quastion) : ?>
+				addField(<?= json_encode($quastion); ?>);
+			<?php endforeach; ?>
+		};
+	</script>
+
+<?php endif; ?>
